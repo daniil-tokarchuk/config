@@ -1,0 +1,96 @@
+[user]
+  email = daniil.v.tokarchuk@gmail.com
+  name = Daniil Tokarchuk
+
+[core]
+  editor = nvim
+[diff]
+  tool = nvimdiff
+[merge]
+  tool = nvimdiff
+[mergetool]
+  keepBackup = false
+
+[gpg]
+  format = ssh
+[user]
+  signingkey = ~/.ssh/ed.pub
+[commit]
+  gpgsign = true
+
+[fetch]
+  prune = true
+[push]
+  autoSetupRemote = true
+
+[init]
+  defaultBranch = main
+
+[alias]
+	h = help
+  d = diff
+	b = branch
+	s = status
+	i = init
+	l = log
+
+	cl = clone
+  ch = cherry-pick
+
+	co = checkout
+	cob = co -b
+  cos = co staging
+  com = co main
+
+	a = add
+	ap = a -p
+	ac = !git a . && git c
+	aca = !git a . && git ca
+	acan = !git a . && git can
+	acanpf = !git a . && git canpf
+	acapf = !git a . && git capf
+	acp = !git a . && git cp
+
+	c = commit -S
+	ca = c --amend
+	can = ca --no-edit
+	canpf = !git can && git pf
+	capf = !git ca && git pf
+  cp = !git c && git p
+
+	p = push
+	pf = p -f
+  pl = pull
+
+ 	ro = "!r() { \
+	  CUR_BRANCH="$(git b --show-current)"; \
+    git pull; \
+	  git co $1; \
+	  git pull; \
+	  git co ${CUR_BRANCH}; \
+	  git ri $1; \
+	}; r"
+	ri = rebase -i
+	ris = rebase -i staging
+	ra = rebase --abort
+	rc = rebase --continue
+  
+  r = restore
+	rs = restore --staged
+
+  rsh = reset --soft @~1
+
+  rev = revert
+
+  sk = stash -ku
+	si = stash --include-untracked
+	sd = stash drop
+	sl = stash list
+	sp = stash pop
+
+	uiau = update-index --assume-unchanged
+	uinau = update-index --no-assume-unchanged
+
+	xu = clean -df   # delete untracked files
+	xi = clean -dfX  # delete ignored files
+	xui = clean -dfx # delete untracked & ignored files
